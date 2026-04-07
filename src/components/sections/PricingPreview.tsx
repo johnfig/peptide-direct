@@ -37,7 +37,7 @@ export default function PricingPreview() {
           <div className="mt-6 text-center">
             <Link
               href="/pricing"
-              className="inline-flex items-center gap-1 text-sm font-semibold text-medical-blue transition-colors hover:text-medical-blue-600"
+              className="inline-flex items-center gap-1 text-sm font-semibold text-sage transition-colors hover:text-sage-600"
             >
               View Full Pricing Details
               <svg

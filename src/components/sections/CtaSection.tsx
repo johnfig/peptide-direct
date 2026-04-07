@@ -17,24 +17,24 @@ interface CtaSectionProps {
 const variantStyles = {
   default: {
     section: "bg-gray-50",
-    headline: "text-navy",
+    headline: "text-forest",
     subheadline: "text-gray-600",
-    inputBorder: "border-gray-200 focus:border-medical-blue focus:ring-medical-blue/20",
+    inputBorder: "border-gray-200 focus:border-sage focus:ring-sage/20",
     inputText: "text-gray-900 placeholder:text-gray-400",
     proofText: "text-gray-500",
     avatarRing: "ring-gray-50",
   },
   dark: {
-    section: "bg-navy",
+    section: "bg-forest",
     headline: "text-white",
     subheadline: "text-gray-300",
-    inputBorder: "border-white/20 focus:border-medical-blue-300 focus:ring-medical-blue/30 bg-white/10",
+    inputBorder: "border-white/20 focus:border-sage-300 focus:ring-sage/30 bg-white/10",
     inputText: "text-white placeholder:text-gray-400",
     proofText: "text-gray-400",
-    avatarRing: "ring-navy",
+    avatarRing: "ring-forest",
   },
   gradient: {
-    section: "bg-gradient-to-r from-navy to-medical-blue",
+    section: "bg-gradient-to-r from-forest-900 to-forest",
     headline: "text-white",
     subheadline: "text-gray-200",
     inputBorder: "border-white/20 focus:border-white focus:ring-white/30 bg-white/10",
@@ -45,7 +45,7 @@ const variantStyles = {
 } as const;
 
 const avatarColors = [
-  "bg-medical-blue-300",
+  "bg-sage-300",
   "bg-emerald-400",
   "bg-amber-400",
 ];

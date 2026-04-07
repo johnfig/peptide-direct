@@ -9,10 +9,10 @@ interface BadgeProps {
 }
 
 const variantStyles: Record<BadgeVariant, string> = {
-  default: "bg-navy text-white",
+  default: "bg-forest text-white",
   success: "bg-emerald-100 text-emerald-800",
   warning: "bg-amber-100 text-amber-800",
-  info: "bg-medical-blue text-white",
+  info: "bg-sage text-white",
 };
 
 export default function Badge({

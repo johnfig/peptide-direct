@@ -4,7 +4,8 @@ import Hero from "@/components/sections/Hero";
 import TrustBar from "@/components/sections/TrustBar";
 import TreatmentCategories from "@/components/sections/TreatmentCategories";
 import HowItWorks from "@/components/sections/HowItWorks";
-import PricingPreview from "@/components/sections/PricingPreview";
+import ModernHealthcare from "@/components/sections/ModernHealthcare";
+import DoctorsSection from "@/components/sections/DoctorsSection";
 import Testimonials from "@/components/sections/Testimonials";
 import FaqSection from "@/components/sections/FaqSection";
 import CtaSection from "@/components/sections/CtaSection";
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
 
 /* ─── Page ────────────────────────────────────────────────────────── */
 
-const generalFaqs = getFaqsByCategory("General").slice(0, 10);
+const generalFaqs = getFaqsByCategory("General").slice(0, 6);
 
 export default function HomePage() {
   return (
@@ -66,15 +67,7 @@ export default function HomePage() {
         }}
       />
 
-      <Hero
-        headline="Physician-Prescribed Peptide Therapy. Direct to Your Door."
-        highlightedWords={["Physician-Prescribed", "Direct"]}
-        subheadline="Access FDA-compliant peptide therapy prescribed by licensed providers in all 50 states. Complete your medical intake in minutes and receive your medication within days."
-        ctaText="Start Your Free Consultation"
-        ctaHref="/consultation"
-        secondaryCtaText="View Treatments"
-        secondaryCtaHref="/peptides/bpc-157"
-      />
+      <Hero />
 
       <TrustBar />
 
@@ -82,20 +75,15 @@ export default function HomePage() {
 
       <HowItWorks />
 
-      <PricingPreview />
+      <ModernHealthcare />
+
+      <DoctorsSection />
 
       <Testimonials />
 
-      <FaqSection
-        faqs={generalFaqs}
-        title="Common Questions About Peptide Therapy"
-      />
+      <FaqSection faqs={generalFaqs} title="Frequently Asked Questions" />
 
-      <CtaSection
-        variant="gradient"
-        headline="Ready to Transform Your Health?"
-        subheadline="Join hundreds of patients who have improved their recovery, performance, and vitality with physician-prescribed peptide therapy."
-      />
+      <CtaSection variant="gradient" />
     </>
   );
 }

@@ -21,7 +21,7 @@ function renderHeading(heading: string, accentWords?: string[]) {
       (word) => word.toLowerCase() === part.toLowerCase(),
     );
     return isAccent ? (
-      <span key={i} className="text-medical-blue">
+      <span key={i} className="text-sage">
         {part}
       </span>
     ) : (
@@ -44,12 +44,12 @@ export default function SectionHeader({
   return (
     <div className={clsx(centered && "text-center")}>
       {eyebrow && (
-        <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-medical-blue">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-sage">
           {eyebrow}
         </p>
       )}
 
-      <h2 className="text-3xl font-bold text-navy md:text-4xl text-balance">
+      <h2 className="text-3xl font-bold text-forest-900 md:text-4xl text-balance">
         {renderHeading(heading, accentWords)}
       </h2>
 

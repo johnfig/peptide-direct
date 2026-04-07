@@ -40,7 +40,7 @@ export default function PricingCard({ tier }: PricingCardProps) {
       className={clsx(
         "relative flex flex-col",
         highlighted &&
-          "bg-navy text-white scale-[1.03] border-2 border-medical-blue",
+          "bg-forest text-white scale-[1.03] border-2 border-sage",
       )}
     >
       {highlighted && (
@@ -53,7 +53,7 @@ export default function PricingCard({ tier }: PricingCardProps) {
         <h3
           className={clsx(
             "text-xl font-bold",
-            highlighted ? "text-white" : "text-navy",
+            highlighted ? "text-white" : "text-forest",
           )}
         >
           {name}
@@ -72,7 +72,7 @@ export default function PricingCard({ tier }: PricingCardProps) {
         <span
           className={clsx(
             "text-4xl font-bold",
-            highlighted ? "text-white" : "text-navy",
+            highlighted ? "text-white" : "text-forest",
           )}
         >
           ${price}
@@ -93,7 +93,7 @@ export default function PricingCard({ tier }: PricingCardProps) {
             <CheckIcon
               className={clsx(
                 "mt-0.5",
-                highlighted ? "text-medical-blue-300" : "text-medical-blue",
+                highlighted ? "text-sage-300" : "text-sage",
               )}
             />
             <span

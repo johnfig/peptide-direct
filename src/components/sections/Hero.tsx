@@ -1,248 +1,195 @@
 "use client";
 
-import clsx from "clsx";
-import Button from "@/components/ui/Button";
-import FadeIn from "@/components/motion/FadeIn";
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+/* ─── Category card data ─────────────────────────────────────────── */
+
+const categories = [
+  {
+    name: "Recovery & Healing",
+    href: "/peptides/bpc-157",
+    bg: "bg-category-recovery",
+    image:
+      "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80",
+  },
+  {
+    name: "Performance",
+    href: "/peptides/cjc-1295",
+    bg: "bg-category-performance",
+    image:
+      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80",
+  },
+  {
+    name: "Anti-Aging",
+    href: "/peptides/sermorelin",
+    bg: "bg-category-antiaging",
+    image:
+      "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80",
+  },
+  {
+    name: "Sexual Health",
+    href: "/peptides/pt-141",
+    bg: "bg-category-sexual",
+    image:
+      "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80",
+  },
+];
+
+/* ─── Arrow icon for category cards ──────────────────────────────── */
+
+function ArrowRightIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <path
+        d="M4.167 10h11.666M10.833 5l5 5-5 5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+/* ─── Props ───────────────────────────────────────────────────────── */
 
 interface HeroProps {
-  headline: string;
-  highlightedWords?: string[];
-  subheadline: string;
-  ctaText: string;
-  ctaHref: string;
+  headline?: string;
+  subheadline?: string;
+  ctaText?: string;
+  ctaHref?: string;
   secondaryCtaText?: string;
   secondaryCtaHref?: string;
+  /** Legacy props — accepted so sub-pages don't break. */
+  highlightedWords?: string[];
   showTrustIndicators?: boolean;
   variant?: "default" | "centered" | "minimal";
 }
 
-function ShieldIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-    >
-      <path
-        d="M10 1.667L3.333 4.167v4.166c0 4.25 2.85 8.225 6.667 9.167 3.817-.942 6.667-4.917 6.667-9.167V4.167L10 1.667z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M7.5 10l1.667 1.667L12.5 8.333"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function CheckCircleIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-    >
-      <path
-        d="M10 18.333a8.333 8.333 0 1 0 0-16.666 8.333 8.333 0 0 0 0 16.666z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M7.5 10l1.667 1.667L12.5 8.333"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function LockIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-    >
-      <rect
-        x="5"
-        y="9.167"
-        width="10"
-        height="7.5"
-        rx="1.5"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M7.5 9.167V5.833a2.5 2.5 0 0 1 5 0v3.334"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function escapeRegex(str: string) {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
-function renderHeadline(headline: string, highlightedWords?: string[]) {
-  if (!highlightedWords || highlightedWords.length === 0) {
-    return headline;
-  }
-
-  const pattern = new RegExp(
-    `(${highlightedWords.map(escapeRegex).join("|")})`,
-    "gi",
-  );
-  const parts = headline.split(pattern);
-
-  return parts.map((part, i) => {
-    const isHighlighted = highlightedWords.some(
-      (word) => word.toLowerCase() === part.toLowerCase(),
-    );
-    return isHighlighted ? (
-      <span key={i} className="text-medical-blue-300">
-        {part}
-      </span>
-    ) : (
-      part
-    );
-  });
-}
-
-const trustIndicators = [
-  { icon: CheckCircleIcon, label: "Licensed Providers in All 50 States" },
-  { icon: ShieldIcon, label: "FDA-Compliant Pharmacies" },
-  { icon: LockIcon, label: "HIPAA-Secured" },
-];
+/* ─── Component ──────────────────────────────────────────────────── */
 
 export default function Hero({
-  headline,
-  highlightedWords,
-  subheadline,
-  ctaText,
-  ctaHref,
-  secondaryCtaText,
-  secondaryCtaHref,
-  showTrustIndicators = true,
-  variant = "default",
+  headline = "Peptide therapy, reimagined for real results.",
+  subheadline = "Physician-prescribed peptide protocols \u2014 delivered to your door. No waiting rooms. No unnecessary steps.",
+  ctaText = "Start Your Consultation",
+  ctaHref = "/consultation",
+  secondaryCtaText = "See How It Works",
+  secondaryCtaHref = "/how-it-works",
 }: HeroProps) {
-  const isMinimal = variant === "minimal";
-  const isCentered = variant === "centered";
+  /* Split headline around "reimagined" for color treatment */
+  const parts = headline.split(/(reimagined)/i);
 
   return (
-    <section
-      className={clsx(
-        isMinimal
-          ? "py-16 md:py-20"
-          : "py-20 md:py-28 lg:py-36 bg-gradient-to-br from-navy via-navy-600 to-navy-800",
-      )}
-    >
-      <div
-        className={clsx(
-          "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8",
-          (isCentered || isMinimal) && "text-center",
-        )}
-      >
-        <FadeIn>
-          <div
-            className={clsx(
-              isCentered && "mx-auto max-w-3xl",
-              !isCentered && !isMinimal && "max-w-2xl",
-            )}
+    <section className="relative bg-gradient-to-br from-forest-900 via-forest to-forest-800">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 pb-32 md:pt-32 md:pb-40 lg:pt-40 lg:pb-48">
+        {/* ── Text content ── */}
+        <div className="mx-auto max-w-3xl text-center">
+          {/* Social proof */}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-6 text-xs font-semibold uppercase tracking-widest text-sage-300"
           >
-            <h1
-              className={clsx(
-                "font-bold leading-tight",
-                isMinimal
-                  ? "text-3xl md:text-4xl lg:text-5xl text-navy"
-                  : "text-4xl md:text-5xl lg:text-6xl text-white",
-              )}
-            >
-              {renderHeadline(headline, highlightedWords)}
-            </h1>
+            Join 2,500+ patients nationwide
+          </motion.p>
 
-            <p
-              className={clsx(
-                "mt-6 text-lg md:text-xl leading-relaxed",
-                isMinimal ? "text-gray-600" : "text-gray-300",
-              )}
-            >
-              {subheadline}
-            </p>
-
-            <div
-              className={clsx(
-                "mt-8 flex flex-wrap gap-4",
-                (isCentered || isMinimal) && "justify-center",
-              )}
-            >
-              <Button
-                variant={isMinimal ? "primary" : "accent"}
-                size="lg"
-                href={ctaHref}
-              >
-                {ctaText}
-              </Button>
-
-              {secondaryCtaText && secondaryCtaHref && (
-                <Button
-                  variant={isMinimal ? "ghost" : "secondary"}
-                  size="lg"
-                  href={secondaryCtaHref}
-                  className={clsx(
-                    !isMinimal &&
-                      "border-white/30 text-white hover:bg-white/10 hover:text-white",
-                  )}
-                >
-                  {secondaryCtaText}
-                </Button>
-              )}
-            </div>
-
-            {showTrustIndicators && !isMinimal && (
-              <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3">
-                {trustIndicators.map((item, index) => (
-                  <div
-                    key={item.label}
-                    className="flex items-center gap-2 text-sm text-gray-300"
-                  >
-                    <item.icon className="text-medical-blue-300" />
-                    <span>{item.label}</span>
-                    {index < trustIndicators.length - 1 && (
-                      <span className="ml-4 hidden text-gray-500 sm:inline">
-                        |
-                      </span>
-                    )}
-                  </div>
-                ))}
-              </div>
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl xl:text-7xl"
+          >
+            {parts.map((part, i) =>
+              part.toLowerCase() === "reimagined" ? (
+                <span key={i} className="text-sage-400">
+                  {part}
+                </span>
+              ) : (
+                <span key={i}>{part}</span>
+              ),
             )}
-          </div>
-        </FadeIn>
+          </motion.h1>
+
+          {/* Subheadline */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80 md:text-xl"
+          >
+            {subheadline}
+          </motion.p>
+
+          {/* CTA buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          >
+            <Link
+              href={ctaHref}
+              className="inline-flex items-center justify-center rounded-full bg-sage px-8 py-4 text-lg font-semibold text-white transition-all duration-200 hover:bg-sage-600 hover:scale-[1.02] active:scale-[0.98]"
+            >
+              {ctaText}
+            </Link>
+
+            <Link
+              href={secondaryCtaHref}
+              className="inline-flex items-center justify-center rounded-full border-2 border-white/30 px-8 py-4 text-lg font-semibold text-white transition-all duration-200 hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98]"
+            >
+              {secondaryCtaText}
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* ── Category cards (overflow out of hero) ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.5 }}
+          className="relative z-10 -mb-24 mt-16 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6"
+        >
+          {categories.map((cat) => (
+            <Link
+              key={cat.name}
+              href={cat.href}
+              className="group overflow-hidden rounded-2xl shadow-lg transition-shadow duration-300 hover:shadow-xl"
+            >
+              {/* Image */}
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src={cat.image}
+                  alt={cat.name}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                {/* subtle gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              </div>
+
+              {/* Label */}
+              <div className={`${cat.bg} flex items-center justify-between px-4 py-3`}>
+                <span className="text-sm font-semibold text-forest-900 md:text-base">
+                  {cat.name}
+                </span>
+                <ArrowRightIcon className="h-5 w-5 text-forest-900 transition-transform duration-200 group-hover:translate-x-1" />
+              </div>
+            </Link>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

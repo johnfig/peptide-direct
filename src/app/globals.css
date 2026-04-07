@@ -10,17 +10,17 @@
   }
 
   body {
-    @apply bg-white text-gray-800;
+    @apply bg-warm-50 text-gray-800;
   }
 
   ::selection {
-    @apply bg-medical-blue/20 text-navy;
+    @apply bg-sage/20 text-forest;
   }
 }
 
 @layer components {
   .section-padding {
-    @apply px-4 py-16 sm:px-6 md:py-20 lg:px-8 lg:py-24;
+    @apply px-4 py-20 sm:px-6 md:py-24 lg:px-8 lg:py-28;
   }
 
   .container-max {
@@ -28,7 +28,7 @@
   }
 
   .heading-gradient {
-    @apply bg-gradient-to-r from-navy to-medical-blue bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-forest to-sage bg-clip-text text-transparent;
   }
 
   .card-shadow {

@@ -63,8 +63,8 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-0.5">
             <span className="text-xl font-bold tracking-tight sm:text-2xl">
-              <span className="text-navy">Peptide</span>
-              <span className="text-medical-blue">Rx</span>
+              <span className="text-forest">Peptide</span>
+              <span className="text-sage">Rx</span>
             </span>
             <span className="ml-1 text-lg font-medium text-gray-500 sm:text-xl">
               Direct
@@ -88,8 +88,8 @@ export default function Header() {
                   href={item.href}
                   className={`inline-flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                     scrolled
-                      ? "text-gray-700 hover:bg-gray-50 hover:text-navy"
-                      : "text-gray-700 hover:text-navy"
+                      ? "text-gray-700 hover:bg-gray-50 hover:text-forest"
+                      : "text-gray-700 hover:text-forest"
                   }`}
                 >
                   {item.label}
@@ -124,7 +124,7 @@ export default function Header() {
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="block rounded-lg px-4 py-2.5 text-sm text-gray-700 transition-colors hover:bg-medical-blue-50 hover:text-medical-blue"
+                          className="block rounded-lg px-4 py-2.5 text-sm text-gray-700 transition-colors hover:bg-sage-50 hover:text-sage"
                         >
                           {child.label}
                         </Link>

@@ -70,9 +70,9 @@ export default function Accordion({
               onClick={() => toggle(index)}
               className={clsx(
                 "flex w-full items-center justify-between px-6 py-5",
-                "text-left font-semibold text-navy",
+                "text-left font-semibold text-forest",
                 "transition-colors duration-200 hover:bg-gray-50",
-                "focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-medical-blue/30",
+                "focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-sage/30",
               )}
               aria-expanded={isOpen}
             >

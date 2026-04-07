@@ -19,13 +19,13 @@ interface ButtonProps {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-navy text-white hover:bg-navy-600 focus:ring-navy/30",
+    "bg-forest text-white hover:bg-forest-800 focus:ring-forest/30",
   secondary:
-    "border-2 border-navy text-navy hover:bg-navy hover:text-white focus:ring-navy/30",
+    "border-2 border-forest text-forest hover:bg-forest hover:text-white focus:ring-forest/30",
   accent:
-    "bg-medical-blue text-white hover:bg-medical-blue-600 focus:ring-medical-blue/30",
+    "bg-sage text-white hover:bg-sage-600 focus:ring-sage/30",
   ghost:
-    "bg-transparent text-navy hover:bg-navy-50 focus:ring-navy/20",
+    "bg-transparent text-forest hover:bg-forest-50 focus:ring-forest/20",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {

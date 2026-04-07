@@ -45,8 +45,8 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             {/* Header */}
             <div className="flex items-center justify-between border-b border-gray-100 px-6 py-4">
               <span className="text-lg font-bold">
-                <span className="text-navy">Peptide</span>
-                <span className="text-medical-blue">Rx</span>
+                <span className="text-forest">Peptide</span>
+                <span className="text-sage">Rx</span>
                 <span className="text-gray-500"> Direct</span>
               </span>
               <button
@@ -114,7 +114,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                   <Link
                                     href={child.href}
                                     onClick={onClose}
-                                    className="block rounded-lg py-2.5 pl-8 pr-4 text-sm text-gray-600 transition-colors hover:bg-medical-blue-50 hover:text-medical-blue"
+                                    className="block rounded-lg py-2.5 pl-8 pr-4 text-sm text-gray-600 transition-colors hover:bg-sage-50 hover:text-sage"
                                   >
                                     {child.label}
                                   </Link>
