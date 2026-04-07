@@ -35,7 +35,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="bg-warm-100 py-12 sm:py-16 md:py-28">
+    <section className="bg-warm-100 py-10 sm:py-16 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <FadeIn>

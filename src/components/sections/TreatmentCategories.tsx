@@ -113,7 +113,7 @@ export default function TreatmentCategories() {
 
         return (
           <div key={treatment.eyebrow} className={treatment.bg}>
-            <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-28">
+            <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-28">
               <div className="grid items-center gap-6 sm:gap-12 lg:grid-cols-2 lg:gap-16">
                 {/* Image column */}
                 <FadeIn
@@ -186,7 +186,7 @@ export default function TreatmentCategories() {
                   {/* CTA button */}
                   <Link
                     href={treatment.href}
-                    className="mt-8 inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-forest px-8 py-3.5 font-semibold text-white transition-colors hover:bg-forest-800"
+                    className="mt-8 inline-flex w-auto items-center justify-center gap-2 rounded-full bg-forest px-6 py-3 text-sm sm:px-8 sm:py-3.5 sm:text-base font-semibold text-white transition-colors hover:bg-forest-800"
                   >
                     Learn More
                     <svg

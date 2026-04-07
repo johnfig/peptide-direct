@@ -159,36 +159,64 @@ export default function Hero({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="relative z-10 -mb-16 sm:-mb-20 lg:-mb-24 mt-16 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4 md:gap-6"
+          className="relative z-10 -mb-16 sm:-mb-20 lg:-mb-24 mt-16"
         >
-          {categories.map((cat) => (
-            <Link
-              key={cat.name}
-              href={cat.href}
-              className="group overflow-hidden rounded-2xl shadow-lg transition-shadow duration-300 hover:shadow-xl"
-            >
-              {/* Image */}
-              <div className="relative aspect-[3/2] sm:aspect-[4/3]">
-                <Image
-                  src={cat.image}
-                  alt={cat.name}
-                  fill
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                {/* subtle gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-              </div>
-
-              {/* Label */}
-              <div className={`${cat.bg} flex items-center justify-between px-4 py-3`}>
-                <span className="text-sm font-semibold text-forest-900 md:text-base">
+          {/* Mobile: vertical stacked list */}
+          <div className="md:hidden bg-white rounded-2xl shadow-lg overflow-hidden">
+            {categories.map((cat) => (
+              <Link
+                key={cat.name}
+                href={cat.href}
+                className="group flex items-center gap-4 p-4 border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors"
+              >
+                <div className="relative w-24 h-16 rounded-xl overflow-hidden flex-shrink-0">
+                  <Image
+                    src={cat.image}
+                    alt={cat.name}
+                    fill
+                    sizes="96px"
+                    className="object-cover"
+                  />
+                </div>
+                <span className="font-semibold text-forest-900 text-base flex-1">
                   {cat.name}
                 </span>
-                <ArrowRightIcon className="h-5 w-5 text-forest-900 transition-transform duration-200 group-hover:translate-x-1" />
-              </div>
-            </Link>
-          ))}
+                <ArrowRightIcon className="h-5 w-5 text-forest-900/50 flex-shrink-0 transition-transform duration-200 group-hover:translate-x-1" />
+              </Link>
+            ))}
+          </div>
+
+          {/* Desktop: grid of image cards */}
+          <div className="hidden md:grid md:grid-cols-4 md:gap-6">
+            {categories.map((cat) => (
+              <Link
+                key={cat.name}
+                href={cat.href}
+                className="group overflow-hidden rounded-2xl shadow-lg transition-shadow duration-300 hover:shadow-xl"
+              >
+                {/* Image */}
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={cat.image}
+                    alt={cat.name}
+                    fill
+                    sizes="25vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  {/* subtle gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                </div>
+
+                {/* Label */}
+                <div className={`${cat.bg} flex items-center justify-between px-4 py-3`}>
+                  <span className="text-base font-semibold text-forest-900">
+                    {cat.name}
+                  </span>
+                  <ArrowRightIcon className="h-5 w-5 text-forest-900 transition-transform duration-200 group-hover:translate-x-1" />
+                </div>
+              </Link>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

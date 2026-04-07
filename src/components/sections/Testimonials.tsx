@@ -33,7 +33,7 @@ export default function Testimonials() {
   const featured = testimonials.slice(0, 6);
 
   return (
-    <section className="bg-warm-50 py-12 sm:py-16 md:py-28">
+    <section className="bg-warm-50 py-10 sm:py-16 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <FadeIn>
