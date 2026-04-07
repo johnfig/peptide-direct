@@ -90,7 +90,7 @@ export default function Hero({
 
   return (
     <section className="relative bg-gradient-to-br from-forest-900 via-forest to-forest-800">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 pb-32 md:pt-32 md:pb-40 lg:pt-40 lg:pb-48">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-32 sm:pt-20 md:pt-32 md:pb-40 lg:pt-40 lg:pb-48">
         {/* ── Text content ── */}
         <div className="mx-auto max-w-3xl text-center">
           {/* Social proof */}
@@ -159,7 +159,7 @@ export default function Hero({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="relative z-10 -mb-24 mt-16 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6"
+          className="relative z-10 -mb-16 sm:-mb-20 lg:-mb-24 mt-16 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4 md:gap-6"
         >
           {categories.map((cat) => (
             <Link
@@ -168,7 +168,7 @@ export default function Hero({
               className="group overflow-hidden rounded-2xl shadow-lg transition-shadow duration-300 hover:shadow-xl"
             >
               {/* Image */}
-              <div className="relative aspect-[4/3]">
+              <div className="relative aspect-[3/2] sm:aspect-[4/3]">
                 <Image
                   src={cat.image}
                   alt={cat.name}

@@ -13,7 +13,7 @@ export default function DoctorsSection() {
   const doctors = teamMembers.slice(0, 2);
 
   return (
-    <section className="bg-warm-200 py-20 md:py-28">
+    <section className="bg-warm-200 py-12 sm:py-16 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <FadeIn>
@@ -21,7 +21,7 @@ export default function DoctorsSection() {
             <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-sage">
               OUR MEDICAL TEAM
             </p>
-            <h2 className="text-3xl font-bold text-forest-900 md:text-4xl text-balance">
+            <h2 className="text-2xl font-bold text-forest-900 md:text-3xl lg:text-4xl text-balance">
               Medical care from leading{" "}
               <span className="text-sage">health experts</span>
             </h2>
@@ -32,7 +32,7 @@ export default function DoctorsSection() {
           </div>
         </FadeIn>
 
-        <div className="mt-14 grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+        <div className="mt-14 grid gap-8 grid-cols-1 sm:grid-cols-2 max-w-4xl mx-auto">
           {doctors.map((doctor, index) => (
             <FadeIn key={doctor.name} delay={index * 0.15}>
               <div className="relative overflow-hidden rounded-2xl">
@@ -50,9 +50,9 @@ export default function DoctorsSection() {
                 {/* Credential card overlaid bottom-left */}
                 <div className="absolute bottom-4 left-4 right-4 sm:right-auto">
                   <div className="bg-white rounded-xl p-4 shadow-lg">
-                    <p className="font-bold text-forest-900">{doctor.name}</p>
-                    <p className="text-sm text-gray-500">{doctor.title}</p>
-                    <p className="text-xs text-gray-400 mt-0.5">
+                    <p className="text-sm sm:text-base font-bold text-forest-900">{doctor.name}</p>
+                    <p className="text-xs sm:text-sm text-gray-500">{doctor.title}</p>
+                    <p className="text-[10px] sm:text-xs text-gray-400 mt-0.5">
                       {doctor.credentials}
                     </p>
                   </div>

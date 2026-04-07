@@ -69,13 +69,13 @@ export default function CtaSection({
   }
 
   return (
-    <section className={clsx("py-20 md:py-28", styles.section)}>
+    <section className={clsx("py-12 sm:py-16 md:py-28", styles.section)}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="mx-auto max-w-2xl text-center">
             <h2
               className={clsx(
-                "text-3xl font-bold md:text-4xl text-balance",
+                "text-2xl font-bold md:text-3xl lg:text-4xl text-balance",
                 styles.headline,
               )}
             >

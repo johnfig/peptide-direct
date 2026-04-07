@@ -49,7 +49,7 @@ export default function SectionHeader({
         </p>
       )}
 
-      <h2 className="text-3xl font-bold text-forest-900 md:text-4xl text-balance">
+      <h2 className="text-2xl font-bold text-forest-900 md:text-3xl lg:text-4xl text-balance">
         {renderHeading(heading, accentWords)}
       </h2>
 

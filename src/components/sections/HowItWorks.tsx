@@ -35,7 +35,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="bg-warm-100 py-20 md:py-28">
+    <section className="bg-warm-100 py-12 sm:py-16 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <FadeIn>
@@ -43,7 +43,7 @@ export default function HowItWorks() {
             <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-sage">
               SIMPLE, STREAMLINED PROCESS
             </p>
-            <h2 className="text-3xl font-bold text-forest-900 md:text-4xl text-balance">
+            <h2 className="text-2xl font-bold text-forest-900 md:text-3xl lg:text-4xl text-balance">
               How It Works
             </h2>
           </div>
@@ -78,7 +78,7 @@ export default function HowItWorks() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="mt-6 mb-2 text-xl font-bold text-forest-900">
+                  <h3 className="mt-6 mb-2 text-lg md:text-xl font-bold text-forest-900">
                     {step.title}
                   </h3>
 

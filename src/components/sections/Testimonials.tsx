@@ -33,7 +33,7 @@ export default function Testimonials() {
   const featured = testimonials.slice(0, 6);
 
   return (
-    <section className="bg-warm-50 py-20 md:py-28">
+    <section className="bg-warm-50 py-12 sm:py-16 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <FadeIn>
@@ -41,7 +41,7 @@ export default function Testimonials() {
             <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-sage">
               PATIENT STORIES
             </p>
-            <h2 className="text-3xl font-bold text-forest-900 md:text-4xl text-balance">
+            <h2 className="text-2xl font-bold text-forest-900 md:text-3xl lg:text-4xl text-balance">
               There&apos;s a reason people are{" "}
               <span className="text-sage">raving about us</span>.
             </h2>
@@ -51,7 +51,7 @@ export default function Testimonials() {
         <div className="mt-14 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {featured.map((testimonial, index) => (
             <FadeIn key={testimonial.name} delay={index * 0.08}>
-              <div className="rounded-2xl bg-white p-8 card-shadow h-full flex flex-col">
+              <div className="rounded-2xl bg-white p-5 md:p-8 card-shadow h-full flex flex-col">
                 {/* Avatar initial + stars row */}
                 <div className="flex items-center gap-3 mb-4">
                   <div
@@ -90,7 +90,7 @@ export default function Testimonials() {
 
                 {/* Quote — full text, no line-clamp */}
                 <blockquote className="flex-1">
-                  <p className="text-base leading-relaxed text-gray-700">
+                  <p className="text-sm md:text-base leading-relaxed text-gray-700">
                     &ldquo;{testimonial.quote}&rdquo;
                   </p>
                 </blockquote>

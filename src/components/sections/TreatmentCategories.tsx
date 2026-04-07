@@ -113,8 +113,8 @@ export default function TreatmentCategories() {
 
         return (
           <div key={treatment.eyebrow} className={treatment.bg}>
-            <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-              <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-28">
+              <div className="grid items-center gap-6 sm:gap-12 lg:grid-cols-2 lg:gap-16">
                 {/* Image column */}
                 <FadeIn
                   direction={isOdd ? "right" : "left"}
@@ -158,7 +158,7 @@ export default function TreatmentCategories() {
                   </p>
 
                   {/* Heading */}
-                  <h2 className="text-3xl font-bold tracking-tight text-forest-900 md:text-4xl lg:text-5xl">
+                  <h2 className="text-2xl font-bold tracking-tight text-forest-900 md:text-4xl lg:text-5xl">
                     {treatment.heading}{" "}
                     <span className={treatment.accentColor}>
                       {treatment.accentWord}
@@ -175,7 +175,7 @@ export default function TreatmentCategories() {
                     {treatment.benefits.map((benefit) => (
                       <li
                         key={benefit}
-                        className="flex items-center gap-3 text-gray-700"
+                        className="flex items-center gap-3 text-sm md:text-base text-gray-700"
                       >
                         <CheckIcon />
                         {benefit}
@@ -186,7 +186,7 @@ export default function TreatmentCategories() {
                   {/* CTA button */}
                   <Link
                     href={treatment.href}
-                    className="mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-8 py-3.5 font-semibold text-white transition-colors hover:bg-forest-800"
+                    className="mt-8 inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-forest px-8 py-3.5 font-semibold text-white transition-colors hover:bg-forest-800"
                   >
                     Learn More
                     <svg

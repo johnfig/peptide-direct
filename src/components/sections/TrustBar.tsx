@@ -156,9 +156,9 @@ function MarqueeStrip() {
 
 export default function TrustBar() {
   return (
-    <section className="bg-forest-900 pt-28 pb-4 overflow-hidden">
+    <section className="bg-forest-900 pt-20 sm:pt-24 lg:pt-28 py-3 sm:py-4 overflow-hidden">
       <div
-        className="flex whitespace-nowrap animate-marquee text-sm font-medium uppercase tracking-wider text-white/90"
+        className="flex whitespace-nowrap animate-marquee text-xs md:text-sm font-medium uppercase tracking-wider text-white/90"
         /* The animation runs translateX(0) -> translateX(-50%).
            Because the content is duplicated, the second half slides
            in seamlessly before the first half loops. */

@@ -11,13 +11,13 @@ export default function Footer() {
     <>
       {/* Trust Badges Bar */}
       <div className="border-t border-warm-200 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-6 text-center md:grid-cols-4">
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:py-8 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 text-center md:grid-cols-4">
             {/* PeptideRx Guarantee */}
             <div className="flex flex-col items-center gap-2">
               <svg
-                width="28"
-                height="28"
+                width="24"
+                height="24"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -40,8 +40,8 @@ export default function Footer() {
             {/* Free Expedited Delivery */}
             <div className="flex flex-col items-center gap-2">
               <svg
-                width="28"
-                height="28"
+                width="24"
+                height="24"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -66,8 +66,8 @@ export default function Footer() {
             {/* Doctor-Led Plans */}
             <div className="flex flex-col items-center gap-2">
               <svg
-                width="28"
-                height="28"
+                width="24"
+                height="24"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -91,8 +91,8 @@ export default function Footer() {
             {/* No Hidden Fees */}
             <div className="flex flex-col items-center gap-2">
               <svg
-                width="28"
-                height="28"
+                width="24"
+                height="24"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -119,7 +119,7 @@ export default function Footer() {
       {/* Main Footer */}
       <footer className="bg-forest-900 text-white">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-6">
+          <div className="grid gap-8 sm:gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-6">
             {/* Brand Column */}
             <div className="lg:col-span-2">
               <Link href="/" className="inline-block">
@@ -247,7 +247,7 @@ export default function Footer() {
                 </p>
               </div>
               <form
-                className="flex w-full gap-2 sm:w-auto"
+                className="flex w-full flex-col gap-2 sm:flex-row sm:w-auto"
                 onSubmit={(e) => e.preventDefault()}
               >
                 <input
@@ -269,7 +269,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-forest-800">
-          <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 py-6 sm:px-6 md:flex-row md:justify-between lg:px-8">
+          <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 py-6 text-center sm:px-6 md:flex-row md:justify-between md:text-left lg:px-8">
             <p className="text-xs text-gray-400">
               &copy; {currentYear} {SITE_NAME}. All rights reserved.
             </p>

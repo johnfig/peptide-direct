@@ -89,13 +89,13 @@ const features = [
 
 export default function ModernHealthcare() {
   return (
-    <section className="bg-white py-20 md:py-28">
+    <section className="bg-white py-12 sm:py-16 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 items-center">
           {/* Left: Lifestyle photo */}
           <FadeIn direction="left">
             <div className="relative overflow-hidden rounded-2xl">
-              <div className="aspect-[4/5] relative">
+              <div className="aspect-[4/3] lg:aspect-[4/5] relative">
                 <Image
                   src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=800&q=80"
                   alt="Happy person enjoying modern healthcare"
@@ -113,7 +113,7 @@ export default function ModernHealthcare() {
               <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-sage">
                 BETTER IS POSSIBLE — AND WE BUILT FOR IT
               </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-forest-900 text-balance">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-forest-900 text-balance">
                 Modern healthcare,{" "}
                 <span className="text-sage">built around you</span>
               </h2>
@@ -129,13 +129,13 @@ export default function ModernHealthcare() {
                 {features.map((feature) => (
                   <div
                     key={feature.title}
-                    className="bg-warm-50 rounded-xl p-4"
+                    className="bg-warm-50 rounded-xl p-3 sm:p-4"
                   >
                     <div className="mb-2">{feature.icon}</div>
                     <p className="font-semibold text-forest-900 text-sm">
                       {feature.title}
                     </p>
-                    <p className="text-sm text-gray-600 mt-1">
+                    <p className="text-xs sm:text-sm text-gray-600 mt-1">
                       {feature.description}
                     </p>
                   </div>
