@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import Hero from "@/components/sections/Hero";
 import TrustBar from "@/components/sections/TrustBar";
+import BPC157Spotlight from "@/components/sections/BPC157Spotlight";
 import TreatmentCategories from "@/components/sections/TreatmentCategories";
 import HowItWorks from "@/components/sections/HowItWorks";
 import ModernHealthcare from "@/components/sections/ModernHealthcare";
@@ -70,6 +71,8 @@ export default function HomePage() {
       <Hero />
 
       <TrustBar />
+
+      <BPC157Spotlight />
 
       <TreatmentCategories />
 
