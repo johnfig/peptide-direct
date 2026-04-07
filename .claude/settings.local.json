@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(source ~/.zshrc)",
+      "Bash(npm --version)",
+      "Bash(wc -l /private/tmp/claude-501/-Users-johnfigueiredo-Code-peptide-direct/8f97f70b-db78-4228-b4fa-9dab2b7f91d0/tasks/*.output)",
+      "Bash(find /Users/johnfigueiredo/Code/peptide-direct/src/data -name *.ts)",
+      "Bash(ls /Users/johnfigueiredo/Code/peptide-direct/src/app/lp/*/page.tsx)",
+      "Bash(find /Users/johnfigueiredo/Code/peptide-direct/src -name *.ts -o -name *.tsx)",
+      "Bash(npx next:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git rm:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}
