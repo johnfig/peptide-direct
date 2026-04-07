@@ -5,144 +5,82 @@ import FadeIn from "@/components/motion/FadeIn";
 
 const features = [
   {
-    title: "Licensed & Regulated",
-    description: "Care from licensed clinicians through regulated pharmacies.",
-    icon: (
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="text-sage"
-      >
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <path d="m9 12 2 2 4-4" />
-      </svg>
-    ),
-  },
-  {
-    title: "100% Online",
+    title: "Licensed and regulated",
     description:
-      "Appointments, follow-ups, and treatment entirely online.",
-    icon: (
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="text-sage"
-      >
-        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-        <line x1="8" y1="21" x2="16" y2="21" />
-        <line x1="12" y1="17" x2="12" y2="21" />
-      </svg>
-    ),
+      "Care provided by licensed clinicians and filled through FDA-regulated pharmacies.",
+    image:
+      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=500&q=80",
   },
   {
-    title: "Fast & Discreet",
-    description: "Shipped quickly in plain packaging.",
-    icon: (
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="text-sage"
-      >
-        <path d="M5 12h14" />
-        <path d="m12 5 7 7-7 7" />
-      </svg>
-    ),
+    title: "100% online medical care",
+    description:
+      "Appointments, follow-ups, and treatment all take place online.",
+    image:
+      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&q=80",
   },
   {
-    title: "24/7 Support",
-    description: "Medical support whenever you need it.",
-    icon: (
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="text-sage"
-      >
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-      </svg>
-    ),
+    title: "Shipping that's fast & discreet",
+    description:
+      "Orders arrive quickly and in plain packaging to protect your privacy.",
+    image:
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=500&q=80",
+  },
+  {
+    title: "Unlimited 24/7 support",
+    description:
+      "Medical support continues throughout your care, whenever you need it.",
+    image:
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=80",
   },
 ];
 
 export default function ModernHealthcare() {
   return (
-    <section className="bg-white py-10 sm:py-16 md:py-28">
+    <section className="bg-warm-50 py-10 sm:py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-2 items-center">
-          {/* Left: Lifestyle photo */}
-          <FadeIn direction="left">
-            <div className="relative overflow-hidden rounded-2xl">
-              <div className="aspect-[4/3] lg:aspect-[4/5] relative">
-                <Image
-                  src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=800&q=80"
-                  alt="Happy person enjoying modern healthcare"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </div>
-          </FadeIn>
+        {/* Section Header */}
+        <FadeIn>
+          <div className="mx-auto max-w-2xl text-center mb-10 sm:mb-14">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-sage">
+              WE&apos;RE CREATING A BETTER HEALTHCARE EXPERIENCE
+            </p>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-forest-900">
+              The details matter.
+            </h2>
+            <p className="mt-2 text-lg text-sage font-medium">
+              We&apos;re here for those details
+            </p>
+          </div>
+        </FadeIn>
 
-          {/* Right: Content */}
-          <FadeIn direction="right">
-            <div>
-              <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-sage">
-                BETTER IS POSSIBLE — AND WE BUILT FOR IT
-              </p>
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-forest-900 text-balance">
-                Modern healthcare,{" "}
-                <span className="text-sage">built around you</span>
-              </h2>
-              <p className="mt-4 text-lg leading-relaxed text-gray-600">
-                We believe everyone deserves access to cutting-edge treatments
-                without the hassle of traditional healthcare. Our platform
-                connects you directly with expert physicians and delivers
-                personalized care to your doorstep.
-              </p>
+        {/* Feature Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {features.map((feature, index) => (
+            <FadeIn key={feature.title} delay={index * 0.1}>
+              <div className="card-shadow hover:card-shadow-hover transition-shadow duration-300 rounded-2xl overflow-hidden">
+                {/* Photo */}
+                <div className="aspect-[4/3] relative overflow-hidden rounded-t-2xl">
+                  <Image
+                    src={feature.image}
+                    alt={feature.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
 
-              {/* 2x2 feature grid */}
-              <div className="mt-8 grid grid-cols-2 gap-4">
-                {features.map((feature) => (
-                  <div
-                    key={feature.title}
-                    className="bg-warm-50 rounded-xl p-3 sm:p-4"
-                  >
-                    <div className="mb-2">{feature.icon}</div>
-                    <p className="font-semibold text-forest-900 text-sm">
-                      {feature.title}
-                    </p>
-                    <p className="text-xs sm:text-sm text-gray-600 mt-1">
-                      {feature.description}
-                    </p>
-                  </div>
-                ))}
+                {/* Content */}
+                <div className="bg-white rounded-b-2xl p-5 sm:p-6">
+                  <h3 className="text-base sm:text-lg font-bold text-forest-900">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 mt-2">
+                    {feature.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          </FadeIn>
+            </FadeIn>
+          ))}
         </div>
       </div>
     </section>

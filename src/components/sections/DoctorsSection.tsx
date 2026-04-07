@@ -21,7 +21,7 @@ export default function DoctorsSection() {
             <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-sage">
               OUR MEDICAL TEAM
             </p>
-            <h2 className="text-2xl font-bold text-forest-900 md:text-3xl lg:text-4xl text-balance">
+            <h2 className="text-3xl font-bold text-forest-900 md:text-4xl lg:text-5xl text-balance">
               Medical care from leading{" "}
               <span className="text-sage">health experts</span>
             </h2>
@@ -32,12 +32,12 @@ export default function DoctorsSection() {
           </div>
         </FadeIn>
 
-        <div className="mt-14 grid gap-8 grid-cols-1 sm:grid-cols-2 max-w-4xl mx-auto">
+        <div className="mt-14 grid gap-3 sm:gap-6 md:gap-8 grid-cols-2 max-w-4xl mx-auto">
           {doctors.map((doctor, index) => (
             <FadeIn key={doctor.name} delay={index * 0.15}>
-              <div className="relative overflow-hidden rounded-2xl">
+              <div className="relative overflow-visible rounded-2xl pb-6 sm:pb-8">
                 {/* Doctor portrait */}
-                <div className="aspect-[3/4] relative">
+                <div className="aspect-[3/4] sm:aspect-[3/4] relative overflow-hidden rounded-2xl">
                   <Image
                     src={doctorImages[index]}
                     alt={doctor.name}
@@ -48,10 +48,10 @@ export default function DoctorsSection() {
                 </div>
 
                 {/* Credential card overlaid bottom-left */}
-                <div className="absolute bottom-4 left-4 right-4 sm:right-auto">
-                  <div className="bg-white rounded-xl p-4 shadow-lg">
+                <div className="absolute -bottom-4 left-3 right-3 sm:-bottom-6 sm:left-4 sm:right-4">
+                  <div className="bg-white/95 backdrop-blur-sm rounded-xl p-3 sm:p-4 shadow-lg">
                     <p className="text-sm sm:text-base font-bold text-forest-900">{doctor.name}</p>
-                    <p className="text-xs sm:text-sm text-gray-500">{doctor.title}</p>
+                    <p className="text-xs text-gray-500">{doctor.title}</p>
                     <p className="text-[10px] sm:text-xs text-gray-400 mt-0.5">
                       {doctor.credentials}
                     </p>

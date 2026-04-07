@@ -19,8 +19,12 @@ const treatments = [
       "Gut health restoration",
       "Physician-monitored treatment plans",
     ],
-    image:
+    heroImage:
       "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80",
+    accentImages: [
+      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80",
+      "https://images.unsplash.com/photo-1552196563-55cd4e45efb3?w=400&q=80",
+    ],
     href: "/peptides/bpc-157",
     bg: "bg-white",
   },
@@ -38,8 +42,12 @@ const treatments = [
       "Better sleep quality & recovery",
       "Personalized dosing protocols",
     ],
-    image:
+    heroImage:
       "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80",
+    accentImages: [
+      "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&q=80",
+      "https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=400&q=80",
+    ],
     href: "/peptides/cjc-1295",
     bg: "bg-warm-100",
   },
@@ -57,8 +65,12 @@ const treatments = [
       "Better sleep & mood regulation",
       "Evidence-based longevity protocols",
     ],
-    image:
+    heroImage:
       "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&q=80",
+    accentImages: [
+      "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=400&q=80",
+      "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=400&q=80",
+    ],
     href: "/peptides/sermorelin",
     bg: "bg-white",
   },
@@ -76,8 +88,12 @@ const treatments = [
       "Discreet delivery to your door",
       "Ongoing physician support",
     ],
-    image:
+    heroImage:
       "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=800&q=80",
+    accentImages: [
+      "https://images.unsplash.com/photo-1609220136736-443140cffec6?w=400&q=80",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+    ],
     href: "/peptides/pt-141",
     bg: "bg-warm-100",
   },
@@ -108,40 +124,44 @@ function CheckIcon() {
 export default function TreatmentCategories() {
   return (
     <section>
-      {treatments.map((treatment, index) => {
-        const isOdd = index % 2 !== 0;
+      {treatments.map((t, i) => {
+        const isOdd = i % 2 !== 0;
 
         return (
-          <div key={treatment.eyebrow} className={treatment.bg}>
-            <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-28">
-              <div className="grid items-center gap-6 sm:gap-12 lg:grid-cols-2 lg:gap-16">
-                {/* Image column */}
+          <div key={t.eyebrow} className={t.bg}>
+            <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
+              <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
+                {/* Image collage column */}
                 <FadeIn
                   direction={isOdd ? "right" : "left"}
-                  className={isOdd ? "lg:order-last" : ""}
+                  className={`space-y-3 sm:space-y-4${isOdd ? " lg:order-last" : ""}`}
                 >
-                  <div className="relative">
-                    {/* Colored glow behind image */}
-                    <div
-                      className={`absolute -inset-4 rounded-3xl opacity-20 blur-2xl ${
-                        index === 0
-                          ? "bg-sage"
-                          : index === 1
-                            ? "bg-blue-400"
-                            : index === 2
-                              ? "bg-pink-400"
-                              : "bg-purple-400"
-                      }`}
+                  {/* Hero image */}
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+                    <Image
+                      src={t.heroImage}
+                      alt={t.eyebrow}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
                     />
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-                      <Image
-                        src={treatment.image}
-                        alt={treatment.eyebrow}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                      />
-                    </div>
+                  </div>
+                  {/* Two accent images side by side */}
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                    {t.accentImages.map((img, j) => (
+                      <div
+                        key={j}
+                        className="relative aspect-[4/3] overflow-hidden rounded-xl"
+                      >
+                        <Image
+                          src={img}
+                          alt=""
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 1024px) 50vw, 25vw"
+                        />
+                      </div>
+                    ))}
                   </div>
                 </FadeIn>
 
@@ -149,33 +169,32 @@ export default function TreatmentCategories() {
                 <FadeIn
                   direction={isOdd ? "left" : "right"}
                   delay={0.15}
+                  className="mt-8 lg:mt-0"
                 >
                   {/* Eyebrow */}
                   <p
-                    className={`mb-4 text-xs font-semibold uppercase tracking-[0.2em] ${treatment.accentColor}`}
+                    className={`mb-4 text-xs font-semibold uppercase tracking-[0.2em] ${t.accentColor}`}
                   >
-                    {treatment.eyebrow}
+                    {t.eyebrow}
                   </p>
 
                   {/* Heading */}
                   <h2 className="text-2xl font-bold tracking-tight text-forest-900 md:text-4xl lg:text-5xl">
-                    {treatment.heading}{" "}
-                    <span className={treatment.accentColor}>
-                      {treatment.accentWord}
-                    </span>
+                    {t.heading}{" "}
+                    <span className={t.accentColor}>{t.accentWord}</span>
                   </h2>
 
                   {/* Description */}
                   <p className="mt-4 mb-8 text-lg text-gray-600">
-                    {treatment.description}
+                    {t.description}
                   </p>
 
                   {/* Benefits checklist */}
                   <ul className="space-y-3">
-                    {treatment.benefits.map((benefit) => (
+                    {t.benefits.map((benefit) => (
                       <li
                         key={benefit}
-                        className="flex items-center gap-3 text-sm md:text-base text-gray-700"
+                        className="flex items-center gap-3 text-sm text-gray-700 md:text-base"
                       >
                         <CheckIcon />
                         {benefit}
@@ -185,8 +204,8 @@ export default function TreatmentCategories() {
 
                   {/* CTA button */}
                   <Link
-                    href={treatment.href}
-                    className="mt-8 inline-flex w-auto items-center justify-center gap-2 rounded-full bg-forest px-6 py-3 text-sm sm:px-8 sm:py-3.5 sm:text-base font-semibold text-white transition-colors hover:bg-forest-800"
+                    href={t.href}
+                    className="mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-forest-800 sm:px-8 sm:py-3.5 sm:text-base"
                   >
                     Learn More
                     <svg
